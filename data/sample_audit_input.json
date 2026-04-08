@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "client": "Demo Brand",
+    "domain": "https://example.com",
+    "audit_date": "2026-04-08",
+    "auditor": "AI Agentic SEO Auditor v1",
+    "data_window": "Last 90 days",
+    "objective": "Increase non-brand organic leads by improving indexability and intent alignment."
+  },
+  "findings": [
+    {
+      "category": "technical",
+      "issue": "1,200 pages excluded by noindex in key directories",
+      "evidence": "GSC Coverage + crawl export",
+      "severity": "High",
+      "impact": 5,
+      "effort": 2,
+      "confidence": 5,
+      "recommendation": "Remove accidental noindex directives and re-submit sitemap."
+    },
+    {
+      "category": "content",
+      "issue": "Commercial intent pages missing comparison sections",
+      "evidence": "Top-10 SERP pattern review across 35 keywords",
+      "severity": "Medium",
+      "impact": 4,
+      "effort": 3,
+      "confidence": 4,
+      "recommendation": "Add structured comparison blocks and FAQ schema where relevant."
+    },
+    {
+      "category": "internal_links",
+      "issue": "87 orphan pages with backlinks",
+      "evidence": "Crawler + backlink export",
+      "severity": "High",
+      "impact": 4,
+      "effort": 2,
+      "confidence": 4,
+      "recommendation": "Integrate orphan pages into related hub pages with contextual anchors."
+    },
+    {
+      "category": "serp",
+      "issue": "Competitors outrank with fresher templates",
+      "evidence": "SERP snapshot + publish date analysis",
+      "severity": "Medium",
+      "impact": 3,
+      "effort": 2,
+      "confidence": 3,
+      "recommendation": "Refresh top 20 landing pages and add quarterly content update workflow."
+    }
+  ]
+}
