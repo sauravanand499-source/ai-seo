@@ -16,6 +16,7 @@ Then open:
 
 - `meta`: project metadata (client, domain, objective, date window)
 - `findings`: list of issues with category, evidence, impact, effort, confidence, recommendation
+- `url_statuses` (optional): list of checked URLs and status codes. Any `404` responses are automatically converted into a high-priority technical finding.
 
 Priority score is computed as:
 

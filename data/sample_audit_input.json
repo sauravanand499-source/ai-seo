@@ -48,5 +48,11 @@
       "confidence": 3,
       "recommendation": "Refresh top 20 landing pages and add quarterly content update workflow."
     }
+  ],
+  "url_statuses": [
+    { "url": "https://example.com/old-service-page", "status_code": 404 },
+    { "url": "https://example.com/outdated-pricing", "status_code": 404 },
+    { "url": "https://example.com/deleted-post", "status_code": 404 },
+    { "url": "https://example.com/live-page", "status_code": 200 }
   ]
 }

@@ -42,7 +42,7 @@ Minimum reliable stack:
 ## 4) Standard operating workflow
 
 1. **Ingest & normalize data** into a single table keyed by canonical URL.
-2. **Run technical checks** (indexability, canonical loops, redirect chains, noindex mismatch).
+2. **Run technical checks** (indexability, 404/5xx errors, canonical loops, redirect chains, noindex mismatch).
 3. **Run content checks** (intent fit, uniqueness, E-E-A-T signal gaps, thin content).
 4. **Run SERP gap analysis** by keyword cluster.
 5. **Score each issue** with:

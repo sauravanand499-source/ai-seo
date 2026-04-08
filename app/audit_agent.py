@@ -58,9 +58,51 @@ def parse_findings(rows: List[Dict[str, Any]]) -> List[Finding]:
     return findings
 
 
+def findings_from_url_statuses(rows: List[Dict[str, Any]]) -> List[Finding]:
+    """Create technical findings from URL status rows.
+
+    Expected row format:
+      {"url": "https://example.com/a", "status_code": 404}
+    """
+    if not rows:
+        return []
+
+    by_code: Dict[int, List[str]] = {}
+    for row in rows:
+        code = _int(row.get("status_code"), 0)
+        if code <= 0:
+            continue
+        by_code.setdefault(code, []).append(str(row.get("url", "")))
+
+    generated: List[Finding] = []
+    not_found_urls = [u for u in by_code.get(404, []) if u]
+    if not_found_urls:
+        sample = ", ".join(not_found_urls[:3])
+        if len(not_found_urls) > 3:
+            sample += ", ..."
+        generated.append(
+            Finding(
+                category="technical",
+                issue=f"{len(not_found_urls)} URL(s) returning 404",
+                evidence=f"Status checks detected 404 responses. Sample: {sample}",
+                recommendation=(
+                    "Restore removed pages, 301 redirect to the closest relevant URL, "
+                    "or update internal links to valid destinations."
+                ),
+                impact=4,
+                effort=2,
+                confidence=5,
+                severity="High",
+            )
+        )
+
+    return generated
+
+
 def build_report(payload: Dict[str, Any]) -> str:
     meta = payload.get("meta", {})
     findings = parse_findings(payload.get("findings", []))
+    findings.extend(findings_from_url_statuses(payload.get("url_statuses", [])))
 
     top = sorted(findings, key=lambda f: f.priority_score, reverse=True)[:5]
 
