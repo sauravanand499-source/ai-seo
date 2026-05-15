@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI SEO Suite</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>AI SEO Suite</h1>
+    <div class="topbar-actions">
+      <button id="startTourBtn">Start Website Tour</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="dashboard" class="card">
+      <h2>Dashboard</h2>
+      <p>Track campaigns, drafts, published posts, and AI tool usage.</p>
+      <div class="stats">
+        <div><strong id="draftCount">0</strong><span>Drafts</span></div>
+        <div><strong id="publishedCount">0</strong><span>Published</span></div>
+        <div><strong id="campaignCount">0</strong><span>Campaigns</span></div>
+      </div>
+    </section>
+
+    <section id="aiToolkit" class="card">
+      <h2>AI Toolkit (SEO Tools)</h2>
+      <div class="grid tools-grid">
+        <button class="tool-btn" data-tool="planner">Content Planner</button>
+        <button class="tool-btn" data-tool="chatbot">Digital Answer Chatbot</button>
+        <button class="tool-btn" data-tool="ab">A/B Testing Tool</button>
+        <button class="tool-btn" data-tool="campaign">Campaigning Tool</button>
+        <button class="tool-btn" data-tool="generator">AI Article Generator</button>
+        <button class="tool-btn" data-tool="competitor">Competitor Data</button>
+      </div>
+      <div id="toolOutput" class="output"></div>
+    </section>
+
+    <section id="launchCampaign" class="card">
+      <h2>Launch Campaign</h2>
+      <input id="campaignName" placeholder="Campaign name" />
+      <button id="launchCampaignBtn">Launch Campaign</button>
+      <ul id="campaignList"></ul>
+    </section>
+
+    <section id="blogEditor" class="card">
+      <h2>Blog Post Editor</h2>
+      <div class="grid two-col">
+        <div>
+          <label>Title</label>
+          <input id="postTitle" placeholder="SEO friendly title" />
+
+          <label>Writer Name</label>
+          <input id="writerName" placeholder="Writer name" />
+
+          <label>LinkedIn Profile URL</label>
+          <input id="writerLinkedIn" placeholder="https://linkedin.com/in/username" />
+
+          <label>Content</label>
+          <textarea id="postContent" rows="8" placeholder="Write post content..."></textarea>
+
+          <div class="actions">
+            <button id="previewBtn">Preview</button>
+            <button id="saveDraftBtn">Save Draft</button>
+            <button id="publishBtn">Publish</button>
+          </div>
+        </div>
+        <div>
+          <h3>Preview</h3>
+          <div id="postPreview" class="preview">Preview will appear here.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="newsletter" class="card">
+      <h2>Newsletter Subscriber</h2>
+      <input id="subscriberEmail" type="email" placeholder="name@example.com" />
+      <button id="subscribeBtn">Subscribe</button>
+      <p id="subscribeMsg"></p>
+    </section>
+  </main>
+
+  <div id="tourModal" class="tour-modal hidden">
+    <div class="tour-content">
+      <h3 id="tourTitle"></h3>
+      <p id="tourText"></p>
+      <div class="actions">
+        <button id="tourNextBtn">Next</button>
+        <button id="tourCloseBtn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="onboarding" class="onboarding hidden">
+    <p>Welcome! Start a quick tour of the app features.</p>
+    <button id="onboardingStart">Start Tour</button>
+    <button id="onboardingDismiss">Dismiss</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
